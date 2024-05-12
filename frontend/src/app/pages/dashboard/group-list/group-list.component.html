@@ -1,0 +1,10 @@
+<aside>
+  <h2> Group list</h2>
+  <nav>
+    @for (item of data; track item.id) {
+      <li><a [routerLink]="['/groups', item.id]" class="sidebar-link"  routerLinkActive="active" >{{ item.name }}</a></li>
+    } @empty {
+      <li>There are no items.</li>
+    }
+  </nav>
+</aside>

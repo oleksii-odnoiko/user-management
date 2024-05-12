@@ -1,0 +1,8 @@
+<div class="wrap-alerts">
+  <div *ngFor="let alert of alerts" class="{{cssClass(alert)}}">
+    <button color="" class="close" mat-icon-button (click)="removeAlert(alert)" aria-label="Close alert">
+      <mat-icon>close</mat-icon>
+    </button>
+    <span [innerHTML]="alert.message"></span>
+  </div>
+</div>

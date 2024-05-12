@@ -1,0 +1,48 @@
+$spinner-elements: 26;
+$spinner-size: 64px;
+
+.wrap-spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background: rgba(251, 251, 251, 0.7);
+}
+
+.lds-spinner {
+  display: inline-block;
+  position: relative;
+  width: $spinner-size;
+  height: $spinner-size;
+}
+.lds-spinner div {
+  position: absolute;
+  animation: lds-spinner linear 1s infinite;
+  background: #474646;
+  width: 3px;
+  height: 10px;
+  border-radius: 0;
+  transform-origin: 2px calc($spinner-size/2);
+  margin-left: calc($spinner-size/2);
+}
+
+@for $i from 1 through $spinner-elements {
+  .lds-spinner div:nth-child(#{$i}) {
+    transform: rotate(calc(($i - 1)*360/$spinner-elements)*1deg);
+    animation-delay: calc(($spinner-elements - $i)/$spinner-elements)*1s;
+  }
+}
+
+@keyframes lds-spinner {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

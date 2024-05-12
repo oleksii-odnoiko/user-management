@@ -1,0 +1,78 @@
+{
+  "groups": [
+    {
+      "id": 1,
+      "name": "Front end"
+    },
+    {
+      "id": 2,
+      "name": "Back end"
+    },
+    {
+      "id": 3,
+      "name": "QA"
+    },
+    {
+      "id": 4,
+      "name": "DevOps"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "Alex Smith",
+      "birthday": "2001-12-22T00:00:00.000Z",
+      "email": "alex.smith@test.com",
+      "groupId": 1
+    },
+    {
+      "id": 2,
+      "name": "John Jonson",
+      "birthday": "1988-11-01T00:00:00.000Z",
+      "email": "john.jonson@test.com",
+      "groupId": 2
+    },
+    {
+      "id": 3,
+      "name": "John Jonson",
+      "birthday": "1976-09-09T00:00:00.000Z",
+      "email": "john.jonson@test.com",
+      "groupId": 2
+    },
+    {
+      "id": 4,
+      "name": "Caesar Medina",
+      "birthday": "1987-01-28T00:00:00.000Z",
+      "email": "id.erat@icloud.com",
+      "groupId": 3
+    },
+    {
+      "id": 5,
+      "name": "Garrett Hull",
+      "birthday": "2000-12-12T00:00:00.000Z",
+      "email": "sed@hotmail.net",
+      "groupId": 3
+    },
+    {
+      "id": 6,
+      "name": "Keegan Little",
+      "birthday": "1998-06-11T00:00:00.000Z",
+      "email": "montes.nascetur.ridiculus@hotmail.edu",
+      "groupId": 1
+    },
+    {
+      "id": 7,
+      "name": "Amery Cooper",
+      "birthday": "1990-05-05T00:00:00.000Z",
+      "email": "in@icloud.org",
+      "groupId": 2
+    },
+    {
+      "id": 8,
+      "name": "Mark Leonard",
+      "birthday": "1992-02-12T00:00:00.000Z",
+      "email": "proin.vel.nisl@hotmail.ca",
+      "groupId": 3
+    }
+  ]
+}

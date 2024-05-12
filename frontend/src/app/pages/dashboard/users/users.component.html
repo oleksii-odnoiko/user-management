@@ -1,0 +1,10 @@
+<h2>
+  User list
+</h2>
+<app-user-list [dataSource]="users" (onEditUser)="editUser($event)" (onDeleteUser)="deleteUser($event)"></app-user-list>
+<br>
+<button  mat-button (click)="addUser()">
+  <mat-icon>add</mat-icon>
+  New user
+</button>
+<app-loader [loading]="loading"></app-loader>

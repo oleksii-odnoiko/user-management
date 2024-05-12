@@ -1,0 +1,68 @@
+<div>
+  <h2 mat-dialog-title>{{ isNewUser ? 'Create a new user' : 'Edit user' }}</h2>
+  <mat-dialog-content>
+    <form [formGroup]="userForm" (ngSubmit)="saveUser()">
+      <p>
+        <mat-form-field>
+          <mat-label>Name</mat-label>
+          <input matInput
+                 trimInput
+                 formControlName="name"
+                 required>
+          @if (name?.invalid && (name?.dirty || name?.touched)) {
+            <mat-error>
+              @if (name?.errors?.['required']) {
+                Name is required.
+              }
+            </mat-error>
+          }
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field>
+          <mat-label>Enter your email</mat-label>
+          <input matInput
+                 trimInput
+                 id="email"
+                 placeholder="name@example.com"
+                 formControlName="email"
+                 required>
+          @if (email?.invalid && (email?.dirty || email?.touched)) {
+            <mat-error>
+              @if (email?.errors?.['required']) {
+                Email is required.
+              }
+              @if (email?.errors?.['email']) {
+                Email has invalid format.
+              }
+            </mat-error>
+          }
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field>
+          <mat-label>Choose a date</mat-label>
+          <input matInput
+                 formControlName="birthday"
+                 [matDatepicker]="picker">
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          @if (birthday?.invalid && (birthday?.dirty || birthday?.touched)) {
+            <mat-error>
+              @if (birthday?.errors?.['required']) {
+                Birthday is required.
+              }
+            </mat-error>
+          }
+        </mat-form-field>
+      </p>
+    </form>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button (click)="closeDialog()">Cancel</button>
+    <button mat-button (click)="saveUser()" [disabled]="!userForm.valid">Save</button>
+
+  </mat-dialog-actions>
+  <app-loader [loading]="loading"></app-loader>
+</div>
+
