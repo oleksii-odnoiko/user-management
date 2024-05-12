@@ -4,6 +4,7 @@
   "description": "Test project",
   "main": "backend/built/index.js",
   "scripts": {
+    "init": "cd frontend && npm install & cd backend && npm install",
     "start:dev": "cd frontend && npm run start & cd backend && npm run start:dev",
     "start": "cd backend/built && node index.js",
     "prebuild": "cd backend && npm run build",
