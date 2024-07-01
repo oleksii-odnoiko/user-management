@@ -24,7 +24,7 @@ jobs:
         run: ls -la
 
       - name: Go to frontend dir
-        run: cd frontend
+        run: cd frontend/
 
       - name: Show frontend dir structure
         run: ls -la
