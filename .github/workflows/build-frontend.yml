@@ -42,5 +42,5 @@ jobs:
 
       - name: Show dir structure
         run: |
-          cd ../backend
+          cd ../backend/built/public
           ls -la
