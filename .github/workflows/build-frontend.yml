@@ -7,6 +7,10 @@ on:
   pull_request:
     branches: [ "main" ]
 
+defaults:
+  run:
+    working-directory: ./frontend
+
 jobs:
   angular:
     name: Frontend Build
@@ -30,12 +34,11 @@ jobs:
 
       # {4}
       - name: Install dependencies
-        run: |
-          cd frontend/
-          npm ci
+        run: npm ci
 
       # {5}
       - name: Build
-        run: |
-          cd frontend/
-          npm run build
+        run: npm run build
+
+      - name: Show dir structure
+        run: ls -la
