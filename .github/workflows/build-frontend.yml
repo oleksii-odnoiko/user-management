@@ -1,38 +1,46 @@
-# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+name: Frontend Build
 
-name: Build frontend
-
+# {1}
 on:
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
-  workflow_dispatch:
 
 jobs:
-  build:
-
+  angular:
+    name: Frontend Build
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         node-version: [20]
-
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
     steps:
-    - uses: actions/checkout@v4
-    
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-        
-    - name: Go to frontend dir
-      run: cd frontend
-      
-    - name: Install dependencies
-      run: npm ci
+      # {2}
+      - name: Checkout the source code
+        uses: actions/checkout@v4
 
-    - name: Build frontend 
-      run: npm run build --if-present
+      - name: Show folder
+        run: ls -la
+
+      - name: Go to frontend dir
+        run: cd frontend
+
+      - name: Show frontend dir structure
+        run: ls -la
+
+      # {3}
+      - name: Setup Node.js $
+        uses: actions/setup-node@v4
+        with:
+          node-version: $
+          cache: 'npm'
+          cache-dependency-path: package-lock.json
+
+      # {4}
+      - name: Install dependencies
+        run: npm ci
+
+      # {5}
+      - name: Build
+        run: npm run build
